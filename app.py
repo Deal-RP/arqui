@@ -14,6 +14,7 @@ db = mariadb.connect(
 mc = db.cursor()
 app = Flask(__name__)
 
+#Prueba
 # Post
 @app.route("/", methods=['GET', 'POST'])
 def principal():
