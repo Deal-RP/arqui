@@ -25,11 +25,11 @@ def principal():
         if(resp['23'] == '1'):
             # mc.execute("insert into test(datetime, status) values('{}', 'on');".format(str(now)))
             # db.commit()
-            return jsonify({'24':'True'}), 201
-        else:
+            return jsonify({'r':actual}), 201
+        #else:
             # mc.execute("insert into test(datetime, status) values('{}', 'off');".format(str(now)))
             # db.commit()
-            return jsonify({'24':'False'}), 201
+            #return jsonify({'r':actual}), 201
 
     return jsonify({'show':'Pagina prueba'})
 
