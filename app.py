@@ -20,14 +20,15 @@ app = Flask(__name__)
 def principal():
     if(request.method == 'POST'):
         resp = request.get_json()
-        now = datetime.today().strftime('%Y-%m-%d-%H:%M:%S')
+        actual = '11110011'
+        #now = datetime.today().strftime('%Y-%m-%d-%H:%M:%S')
         if(resp['23'] == '1'):
-            mc.execute("insert into test(datetime, status) values('{}', 'on');".format(str(now)))
-            db.commit()
+            # mc.execute("insert into test(datetime, status) values('{}', 'on');".format(str(now)))
+            # db.commit()
             return jsonify({'24':'True'}), 201
         else:
-            mc.execute("insert into test(datetime, status) values('{}', 'off');".format(str(now)))
-            db.commit()
+            # mc.execute("insert into test(datetime, status) values('{}', 'off');".format(str(now)))
+            # db.commit()
             return jsonify({'24':'False'}), 201
 
     return jsonify({'show':'Pagina prueba'})
