@@ -23,6 +23,8 @@ def principal():
         actual = '11110011'
         #now = datetime.today().strftime('%Y-%m-%d-%H:%M:%S')
         if(resp['23'] == '1'):
+            print('Entrada: ')
+            actual = input()
             # mc.execute("insert into test(datetime, status) values('{}', 'on');".format(str(now)))
             # db.commit()
             return jsonify({'r':actual}), 201
