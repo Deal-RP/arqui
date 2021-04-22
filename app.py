@@ -26,7 +26,7 @@ def principal():
             # mc.execute("insert into test(datetime, status) values('{}', 'on');".format(str(now)))
             # db.commit()
             return jsonify({'r':actual}), 201
-        #else:
+        else:
             # mc.execute("insert into test(datetime, status) values('{}', 'off');".format(str(now)))
             # db.commit()
             return jsonify({'r':'00000000'}), 201
