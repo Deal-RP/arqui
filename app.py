@@ -5,32 +5,28 @@ import mysql.connector as mariadb
 from datetime import datetime
 from json2html import *
 
-db = mariadb.connect(
-    host= "localhost",
-    user = "root",
-    passwd = "123",
-    database = "arqui"
-)
-mc = db.cursor()
 app = Flask(__name__)
 
-#Prueba
+#LAB-10
+@app.route('/lab10', methods =["GET", "POST"])
+def lab10():
+    if request.method == "POST":
+       entrada = request.form.get("entrada")
+       #last_name = request.form.get("lname") 
+       return "Tu entrada es: " + entrada
+    return render_template("entrada.html")
+
 # Post
 @app.route("/", methods=['GET', 'POST'])
 def principal():
     if(request.method == 'POST'):
         resp = request.get_json()
         actual = '11110011'
-        #now = datetime.today().strftime('%Y-%m-%d-%H:%M:%S')
         if(resp['23'] == '1'):
             print('Entrada: ')
             actual = input()
-            # mc.execute("insert into test(datetime, status) values('{}', 'on');".format(str(now)))
-            # db.commit()
             return jsonify({'r':actual}), 201
         else:
-            # mc.execute("insert into test(datetime, status) values('{}', 'off');".format(str(now)))
-            # db.commit()
             return jsonify({'r':'00000000'}), 201
 
     return jsonify({'show':'Pagina prueba'})
