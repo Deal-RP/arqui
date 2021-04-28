@@ -16,7 +16,7 @@ def lab10():
        entrada = request.form.get("entrada")
        #last_name = request.form.get("lname")
     else:
-        if !(entrada is None):
+        if not (entrada is None):
             return jsonify({ 'r': entrada }), 201
     return render_template("entrada.html")
 
