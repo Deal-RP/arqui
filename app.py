@@ -13,12 +13,19 @@ entrada = None
 @app.route('/lab10', methods =["GET", "POST"])
 def lab10():
     if request.method == "POST":
+        global entrada
+        entrada = request.form.get("entrada")
+        #last_name = request.form.get("lname")
+    return render_template("entrada.html")
+
+@app.route('/lab10Pi', methods =["GET", "POST"])
+def lab10Pi():
+    if request.method == "POST":
        entrada = request.form.get("entrada")
        #last_name = request.form.get("lname")
-    else:
-        if not (entrada is None):
+        if entrada is not None:
             return jsonify({ 'r': entrada }), 201
-    return render_template("entrada.html")
+
 
 # Post
 @app.route("/", methods=['GET', 'POST'])
