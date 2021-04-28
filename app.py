@@ -22,7 +22,10 @@ def lab10():
 def lab10Pi():
     if request.method == "POST":
         #last_name = request.form.get("lname")
-        return jsonify({ 'r': entrada }), 201
+        if entrada is not None:
+            return jsonify({ 'r': entrada }), 201
+        else:
+            return jsonify({ 'r': '1'}), 201
     return jsonify({ 'r': entrada }), 201
 
 
