@@ -24,9 +24,7 @@ def lab10Pi():
         #last_name = request.form.get("lname")
         if entrada is not None:
             return jsonify({ 'r': entrada }), 201
-        else:
-            return jsonify({ 'r': '1'}), 201
-    return jsonify({ 'r': entrada }), 201
+    return jsonify({ 'r': '1' }), 201
 
 
 # Post
