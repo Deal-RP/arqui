@@ -7,15 +7,17 @@ from json2html import *
 
 app = Flask(__name__)
 
+global entrada = None
+
 #LAB-10
 @app.route('/lab10', methods =["GET", "POST"])
 def lab10():
     if request.method == "POST":
        entrada = request.form.get("entrada")
-       #last_name = request.form.get("lname") 
-       return "Tu entrada es: " + entrada
+       #last_name = request.form.get("lname")
     else:
-        return redirect(url_for('lab10'))
+        if !(entrada is None):
+            return jsonify({ 'r': entrada }), 201
     return render_template("entrada.html")
 
 # Post
