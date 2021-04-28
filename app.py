@@ -20,10 +20,10 @@ def lab10():
 
 @app.route('/lab10Pi', methods =["GET", "POST"])
 def lab10Pi():
-    if request.method == "POST":
+    #if request.method == "POST":
         #last_name = request.form.get("lname")
-        if entrada is not None:
-            return jsonify({ 'r': entrada }), 201
+    if entrada is not None:
+        return jsonify({ 'r': entrada }), 201
     return jsonify({ 'r': '1' }), 201
 
 
