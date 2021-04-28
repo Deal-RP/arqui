@@ -22,6 +22,7 @@ def lab10():
 def lab10Pi():
     if request.method == "POST":
         #last_name = request.form.get("lname")
+        return jsonify({ 'r': entrada }), 201
     return jsonify({ 'r': entrada }), 201
 
 
