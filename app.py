@@ -7,7 +7,7 @@ from json2html import *
 
 app = Flask(__name__)
 
-global entrada = None
+entrada = None
 
 #LAB-10
 @app.route('/lab10', methods =["GET", "POST"])
