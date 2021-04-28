@@ -14,6 +14,8 @@ def lab10():
        entrada = request.form.get("entrada")
        #last_name = request.form.get("lname") 
        return "Tu entrada es: " + entrada
+    else:
+        return redirect(url_for('lab10'))
     return render_template("entrada.html")
 
 # Post
