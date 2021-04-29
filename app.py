@@ -35,7 +35,7 @@ def codigo():
         codigo = '1111111'
     if total == 9:
         codigo = '1110011'
-
+    return
 
 #LAB-10
 @app.route('/lab10', methods =["GET", "POST"])
