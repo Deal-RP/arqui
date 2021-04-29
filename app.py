@@ -52,6 +52,9 @@ def lab10Pi():
         global entradaPi, entrada, total
         entradaPi = resp['pi']
         total = int(str(entradaPi), 2) - int(entrada)
+        print(int(str(entradaPi), 2))
+        print(entrada)
+        print(total)
         if entrada is not None:
             extra = '0'
             aux = total
