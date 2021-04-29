@@ -13,7 +13,7 @@ entradaPi = ''
 numeroPi = 0
 total = 0
 
-def codigo():
+def codigoF():
     global codigo,total
     if total == 0:
         codigo = '1111110'
@@ -61,7 +61,7 @@ def lab10Pi():
             if total >= 10:
                 total = total - 10
                 extra = '1'
-            codigo()
+            codigoF()
             return jsonify({ 
                 'r': extra,
                 'display': codigo,
