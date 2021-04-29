@@ -13,7 +13,7 @@ entradaPi = ''
 numeroPi = 0
 total = 0
 
-def codigo(){
+def codigo():
     global codigo,total
     if total == 0:
         codigo = '1111110'
@@ -35,7 +35,7 @@ def codigo(){
         codigo = '1111111'
     if total == 9:
         codigo = '1110011'
-}
+
 
 #LAB-10
 @app.route('/lab10', methods =["GET", "POST"])
