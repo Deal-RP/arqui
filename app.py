@@ -8,65 +8,100 @@ from json2html import *
 app = Flask(__name__)
 
 entrada = None
-codigo = ''
-entradaPi = ''
-numeroPi = 0
-total = 0
+codigo = []
+ingresado = False
 
 def codigoF():
-    global codigo,total
-    if total == 0:
-        codigo = '1111110'
-    if total == 1:
-        codigo = '0110000'
-    if total == 2:
-        codigo = '1101101'
-    if total == 3:
-        codigo = '1111001'
-    if total == 4:
-        codigo = '0110011'
-    if total == 5:
-        codigo = '1011011'
-    if total == 6:
-        codigo = '1011111'
-    if total == 7:
-        codigo = '1110000'
-    if total == 8:
-        codigo = '1111111'
-    if total == 9:
-        codigo = '1110011'
+    global codigo,numero
+    if numero == 0:
+        codigo.push(2)
+        codigo.push(2)
+        codigo.push(2)
+        codigo.push(2)
+        codigo.push(2)        
+    if numero == 1:
+        codigo.push(1)
+        codigo.push(2)
+        codigo.push(2)
+        codigo.push(2)
+        codigo.push(2)
+    if numero == 2:
+        codigo.push(1)
+        codigo.push(1)
+        codigo.push(2)
+        codigo.push(2)
+        codigo.push(2)
+    if numero == 3:
+        codigo.push(1)
+        codigo.push(1)
+        codigo.push(1)
+        codigo.push(2)
+        codigo.push(2)
+    if numero == 4:
+        codigo.push(1)
+        codigo.push(1)
+        codigo.push(1)
+        codigo.push(1)
+        codigo.push(2)
+    if numero == 5:
+        codigo.push(1)
+        codigo.push(1)
+        codigo.push(1)
+        codigo.push(1)
+        codigo.push(1)
+    if numero == 6:
+        codigo.push(2)
+        codigo.push(1)
+        codigo.push(1)
+        codigo.push(1)
+        codigo.push(1)
+    if numero == 7:
+        codigo.push(2)
+        codigo.push(2)
+        codigo.push(1)
+        codigo.push(1)
+        codigo.push(1)
+    if numero == 8:
+        codigo.push(2)
+        codigo.push(2)
+        codigo.push(2)
+        codigo.push(1)
+        codigo.push(1)
+    if numero == 9:
+        codigo.push(2)
+        codigo.push(2)
+        codigo.push(2)
+        codigo.push(2)
+        codigo.push(1)
     return
 
 #LAB-10
 @app.route('/lab10', methods =["GET", "POST"])
 def lab10():
     if request.method == "POST":
-        global entrada, entradaPi
+        global entrada, ingresado, codigo
+        codigo = []
         entrada = request.form.get("entrada")
-    return render_template("entrada.html", data=entradaPi)
+        ingresado = True
+    return render_template("entrada.html")
 
 @app.route('/lab10Pi', methods =["GET", "POST"])
 def lab10Pi():
     if request.method == "POST":
         resp = request.get_json()
-        global entradaPi, entrada, total
-        entradaPi = resp['pi']
-        total = int(str(entradaPi), 2) - int(entrada)
-        print(int(str(entradaPi), 2))
-        print(entrada)
-        print(total)
-        if entrada is not None:
-            extra = '0'
-            aux = total
-            if total >= 10:
-                total = total - 10
-                extra = '1'
-            codigoF()
+        global numero, entrada, codigo, ingresado
+
+        if ingresado:
+            for e in entrada:
+                print(e)
+                numero = int(e)
+                codigoF()
+            ingresado = False
             return jsonify({ 
-                'r': extra,
+                'r': '1',
                 'display': codigo,
-                'total': aux
             }), 201
+
     return jsonify({ 'r': '0' }), 201
 
 
