@@ -45,7 +45,7 @@ def lab10():
         if len(entrada) <= 10 and entrada.isdigit():
             ingresado = True
         else:
-            print("Error cadena maxima")
+            print("Error cadena")
     return render_template("entrada.html")
 
 @app.route('/lab10Pi', methods =["GET", "POST"])
