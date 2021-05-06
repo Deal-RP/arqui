@@ -44,8 +44,10 @@ def lab10():
         entrada = request.form.get("entrada")
         if len(entrada) <= 10 and entrada.isdigit():
             ingresado = True
+            return render_template("entrada.html", data=entrada)
         else:
             print("Error cadena")
+            return render_template("entrada.html", data=" Error en la cadena")
     return render_template("entrada.html")
 
 @app.route('/lab10Pi', methods =["GET", "POST"])
