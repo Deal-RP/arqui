@@ -42,7 +42,11 @@ def lab10():
         global entrada, ingresado, codigo
         codigo = ''
         entrada = request.form.get("entrada")
-        ingresado = True
+        print(entrada.isdigit())
+        if entrada len(entrada) <= 10:
+            ingresado = True
+        else:
+            print("Error cadena maxima")
     return render_template("entrada.html")
 
 @app.route('/lab10Pi', methods =["GET", "POST"])
