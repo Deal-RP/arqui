@@ -43,7 +43,7 @@ def lab10():
         codigo = ''
         entrada = request.form.get("entrada")
         print(entrada.isdigit())
-        if entrada len(entrada) <= 10:
+        if len(entrada) <= 10:
             ingresado = True
         else:
             print("Error cadena maxima")
