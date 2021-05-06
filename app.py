@@ -8,71 +8,31 @@ from json2html import *
 app = Flask(__name__)
 
 entrada = None
-codigo = []
+codigo = ''
 ingresado = False
 
 def codigoF():
     global codigo,numero
     if numero == 0:
-        codigo.push(2)
-        codigo.push(2)
-        codigo.push(2)
-        codigo.push(2)
-        codigo.push(2)        
+        codigo += '22222'     
     if numero == 1:
-        codigo.push(1)
-        codigo.push(2)
-        codigo.push(2)
-        codigo.push(2)
-        codigo.push(2)
+        codigo += '12222'
     if numero == 2:
-        codigo.push(1)
-        codigo.push(1)
-        codigo.push(2)
-        codigo.push(2)
-        codigo.push(2)
+        codigo += '11222'
     if numero == 3:
-        codigo.push(1)
-        codigo.push(1)
-        codigo.push(1)
-        codigo.push(2)
-        codigo.push(2)
+        codigo += '11122'
     if numero == 4:
-        codigo.push(1)
-        codigo.push(1)
-        codigo.push(1)
-        codigo.push(1)
-        codigo.push(2)
+        codigo += '11112'
     if numero == 5:
-        codigo.push(1)
-        codigo.push(1)
-        codigo.push(1)
-        codigo.push(1)
-        codigo.push(1)
+        codigo += '11111'
     if numero == 6:
-        codigo.push(2)
-        codigo.push(1)
-        codigo.push(1)
-        codigo.push(1)
-        codigo.push(1)
+        codigo += '21111'
     if numero == 7:
-        codigo.push(2)
-        codigo.push(2)
-        codigo.push(1)
-        codigo.push(1)
-        codigo.push(1)
+        codigo += '22111'
     if numero == 8:
-        codigo.push(2)
-        codigo.push(2)
-        codigo.push(2)
-        codigo.push(1)
-        codigo.push(1)
+        codigo += '22211'
     if numero == 9:
-        codigo.push(2)
-        codigo.push(2)
-        codigo.push(2)
-        codigo.push(2)
-        codigo.push(1)
+        codigo += '22221'
     return
 
 #LAB-10
@@ -80,7 +40,7 @@ def codigoF():
 def lab10():
     if request.method == "POST":
         global entrada, ingresado, codigo
-        codigo = []
+        codigo = ''
         entrada = request.form.get("entrada")
         ingresado = True
     return render_template("entrada.html")
